@@ -79,3 +79,11 @@ right: 0px;
   border-bottom: 1px solid black;
   margin-bottom: 5px;
 }
+
+/*Display Client Data*/
+.display-client-data{
+  position: absolute;
+  right: 0px;
+  background-color: white;
+  height: 100vh;
+}
