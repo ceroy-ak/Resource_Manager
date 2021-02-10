@@ -119,7 +119,7 @@ export function ClientProvider(props: { children: React.ReactNode }): JSX.Elemen
             tempClientsListMap.set(String.fromCharCode(i), []);
         }
         clients.forEach((val, id) => {
-            let index = val.name[0];
+            let index = val.name[0].toUpperCase();
             let curr = tempClientsListMap.get(index);
             curr?.push(id);
         });

@@ -16,7 +16,9 @@ function ClientList() {
                 alphabets.map((letter) => {
                     return (
                         <div key={letter}>
-                            <h1 className="client-list-alphabet" >{letter}</h1>
+                            {
+                                ((clientsList?.get(letter)?.length ?? 0) > 0)?<h1 className="client-list-alphabet" >{letter}</h1>:<></>
+                            }
                             {
                                 clientsList.get(letter)?.map((value) => {
                                     let temp = clients.get(value);
