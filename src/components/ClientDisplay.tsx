@@ -10,7 +10,7 @@ function ClientDisplay() {
     const {id} = useParams<UrlId>()
     const {clients} = useContext(ClientsContext)
     const displayData = clients.get(id)!;
-    if(id!=='add'){
+    if(id!=='add' && displayData!==undefined){
         return (<div className="display-client-data">
             <h2>{displayData.name}</h2>
             <h3>Contact Details</h3>

@@ -1,6 +1,4 @@
 import React, { createContext, useState, useEffect } from 'react'
-
-// @ts-ignore
 import { v4 as uuidV4 } from 'uuid'
 
 //Client Interface

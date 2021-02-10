@@ -1,45 +1,72 @@
-import React,{useState} from 'react'
+import React, { useContext } from 'react'
+import {useForm} from 'react-hook-form'
+import {Client, ClientsContext} from './Contexts/ClientProvider'
+import {v4 as uuidV4} from 'uuid'
+import {useHistory} from 'react-router-dom'
 
-function AddClient() {
+function AddClient() {  
 
+    type ClientForm = {
+        name: string;
+        addressLine1: string;
+        addressLine2: string;
+        city: string;
+        country: string;
+        companyPhoneNumber: string;
+        notes: string;
+        contactName: string;
+        contactEmail: string;
+        contactPhone: string;
 
-    const [name, setName] = useState('');
-    const [addressLine1, setAddressLine1] = useState('');
-    const [addressLine2, setAddressLine2] = useState('');
-    const [city, setCity] = useState('');
-    const [country, setCountry] = useState('');
-    const [companyPhoneNumber, setCompanyPhoneNumber] = useState('');
-    const [notes, setNotes] = useState('');
-    const [contactName, setContactName] = useState('');
-    const [contactEmail, setContactEmail] = useState('');
-    const [conactPhone, setContactPhone] = useState('');
+    }
 
+    const {register, handleSubmit} = useForm();
+    const {clients,setClients} = useContext(ClientsContext);
+    const history = useHistory();
+
+    const onSubmit = (data: ClientForm) => {
+        let temp:Client = {
+            name: data.name,
+            addressLine1: data.addressLine1,
+            addressLine2: data.addressLine2,
+            city: data.city,
+            companyPhoneNumber: data.companyPhoneNumber,
+            country: data.country,
+            contactEmail: data.contactEmail,
+            contactName: data.contactName,
+            contactPhoneNumber: data.contactPhone,
+            notes: data.notes,
+        }
+        setClients(new Map<string, Client>([...clients, [uuidV4(),temp]]))
+        history.push("/clients");
+        
+    };
     return (
         <div className="display-client-data">
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <label>Name</label>
-                <input type="text" value={name} onChange={(e)=>setName(e.target.value)} required/>
+                <input name="name" ref={register({ required: true })} type="text" required/>
                 <br/>
-                <input type="text"/>
+                <input  name="addressLine1" ref={register} type="text"/>
                 <br/>
-                <input type="text"/>
+                <input name="addressLine2"  ref={register} type="text"/>
                 <br/>
-                <input type="text"/>
+                <input name="city"  ref={register} type="text"/>
                 <br/>
-                <input type="text"/>
+                <input  name="country" ref={register} type="text"/>
                 <br/>
-                <input type="text"/>
+                <input name="companyPhoneNumber"  ref={register} type="text"/>
                 <br/>
-                <input type="text"/>
+                <input name="notes"  ref={register} type="text"/>
                 <br/>
                 <label>Contact Name</label>
-                <input type="text" required/>
+                <input name="contactName"  ref={register({ required: true })} type="text" required/>
                 <br/>
                 <label>Contact Email</label>
-                <input type="text" required/>
+                <input  name="contactEmail" ref={register({ required: true })} type="text" required/>
                 <br/>
                 <label>Contact Phone Number</label>
-                <input type="text" required/>
+                <input  name="contactPhone" ref={register({ required: true })} type="text" required/>
                 <br/>
                 <button type="submit">Submit</button>
             </form>
