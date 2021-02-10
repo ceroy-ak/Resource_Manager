@@ -1,0 +1,40 @@
+@import "@fluentui/react/dist/sass/References";
+
+/*Title Component*/
+
+.title {
+  background-color: #2a8ad4;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  min-height: 20px;
+  position: fixed;
+  width: 100%;
+
+  
+
+  img{
+      height: auto;
+      width: 110px;
+      padding: 15px 5px 10px 20px;
+  }
+
+  &-logo{
+      display: flex;
+
+      h1{
+          font-family: 'Arial';
+          padding: 21px 20px 0px 5px;
+          font-size: 15px;
+      }
+  }
+
+  &-center-logo{
+      margin:auto;
+  }
+
+  &-settings{
+      margin-left: 100px;
+      padding: 10px;
+  }
+}
