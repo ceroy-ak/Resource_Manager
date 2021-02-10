@@ -7,6 +7,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import ClientDisplay from './ClientDisplay'
 import AddClient from './AddClient'
 import UpdateClient from './UpdateClient'
+import '../scss/App.scss'
+import { initializeIcons } from '@uifabric/icons';
+initializeIcons();
 
 function App() {
   return (
