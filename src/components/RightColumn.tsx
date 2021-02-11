@@ -5,7 +5,7 @@ import NewClient from './NewClient'
 
 function RightColumn() {
     return (
-        <div className="right-column">
+        <div className="right-column ms-Grid-col ms-md10">
                 <NewClient />
                 <ClientSearch />
                 <ClientList />

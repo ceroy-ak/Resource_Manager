@@ -1,40 +1,91 @@
-@import "@fluentui/react/dist/sass/References";
+@import "@fluentui/react/dist/sass/References/";
 
 /*Title Component*/
 
-.title {
-  background-color: #2a8ad4;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  min-height: 20px;
-  position: fixed;
-  width: 100%;
+// .title {
+//   background-color: #2a8ad4;
+//   color: white;
+//   display: flex;
+//   justify-content: space-between;
+//   min-height: 20px;
+//   position: fixed;
+//   width: 100%;
 
   
 
-  img{
-      height: auto;
-      width: 110px;
-      padding: 15px 5px 10px 20px;
-  }
+//   img{
+//       height: auto;
+//       width: 110px;
+//       padding: 15px 5px 10px 20px;
+//   }
 
-  &-logo{
-      display: flex;
+//   &-logo{
+//       display: flex;
 
-      h1{
-          font-family: 'Arial';
-          padding: 21px 20px 0px 5px;
-          font-size: 15px;
-      }
-  }
+//       h1{
+//           font-family: 'Arial';
+//           padding: 21px 20px 0px 5px;
+//           font-size: 15px;
+//       }
+//   }
 
-  &-center-logo{
-      margin:auto;
-  }
+//   &-center-logo{
+//       margin:auto;
+//   }
 
-  &-settings{
-      margin-left: 100px;
-      padding: 10px;
-  }
+//   &-settings{
+//       margin-left: 100px;
+//       padding: 10px;
+//   }
+// }
+//Available: title, title-left, title-center, title-right -> title-settings
+.title{
+    background-color: #2a8ad4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+
+    img{
+        height: 30px;
+        width: 110px;
+    }
+
+    &-left{
+        display: flex;
+
+        img{
+            margin:10px;
+        }
+
+        h1{
+            white-space:nowrap;
+            border-left: 2px solid white;
+            margin: 10px 10px 10px 10px;
+            padding: 0px 10px 0px 20px;
+            font-weight: lighter;
+        }
+    }
+
+    &-settings{
+        color: white;
+        align-self: center;
+        font-size: 20px;
+
+    }
+
+    &-center{
+        margin-right: 60px;
+    }
+
+    &-right{
+        display: flex;
+        align-items: center;
+        img{
+            height: 50px;
+            width: 50px;
+            margin:5px;
+            margin-left: 15px;
+        }
+    }
 }
