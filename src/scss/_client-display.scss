@@ -1,0 +1,40 @@
+@import 'office-ui-fabric-core/dist/sass/References';
+
+.client-display{
+    margin-top: 50px;
+
+    &--picture{
+        height: 100px;
+        width: 100px;
+    }
+
+    &--name{
+        margin: 25px 0px 10px 0px;
+    }
+
+    &--heading{
+        font-weight: bold;
+        padding: 10px 0px;
+    }
+
+    &--contact-name{
+        padding: 10px 0px;
+    }
+
+    &--email{
+        padding: 10px 0px;
+    }
+    
+    &--phone{
+        padding: 10px 0px;
+    }
+
+    &--btn{
+        position: absolute;
+        bottom: 20px;
+    }
+
+    &--update{
+        margin-right: 20px;
+    }
+}

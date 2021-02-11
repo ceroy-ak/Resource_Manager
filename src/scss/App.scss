@@ -2,7 +2,8 @@
 @import './new-client';
 @import './client-list';
 @import './client-card';
-@import './add-client';
+@import './form-client';
+@import './client-display';
 
 *{
   margin: 0;
@@ -16,6 +17,7 @@
 .left-column{
 background-color: #343434;
 height: 100vh;
+position: fixed !important;
 }
 
 // /*right-column*/

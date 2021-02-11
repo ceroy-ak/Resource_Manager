@@ -40,7 +40,7 @@ function ClientCard({ name, city, contactName, contactEmail, contactPhoneNumber,
                     </div>
                     <div className="ms-Grid-row" dir="ltr">
                         <div className="ms-Grid-col client-card--email">
-                        <a href={`mailto:${contactEmail}`}>Send Email</a>
+                        <p>Send Email</p>
                         </div>
                         <div className="ms-Grid-col client-card--phone">
                         <p>{contactPhoneNumber}</p>

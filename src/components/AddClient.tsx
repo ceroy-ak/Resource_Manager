@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
-import {useForm} from 'react-hook-form'
-import {Client, ClientsContext} from './Contexts/ClientProvider'
-import {v4 as uuidV4} from 'uuid'
-import {useHistory} from 'react-router-dom'
-import {} from '@fluentui/react'
+import { useForm, Controller } from 'react-hook-form'
+import { Client, ClientsContext } from './Contexts/ClientProvider'
+import { v4 as uuidV4 } from 'uuid'
+import { useHistory } from 'react-router-dom'
+import { Panel, PrimaryButton, DefaultButton, TextField } from '@fluentui/react'
+import { useBoolean } from '@uifabric/react-hooks';
 
-function AddClient() {  
+function AddClient() {
 
     type ClientForm = {
         name: string;
@@ -21,12 +22,13 @@ function AddClient() {
 
     }
 
-    const {register, handleSubmit} = useForm();
-    const {clients,setClients} = useContext(ClientsContext);
+    const { register, handleSubmit, control } = useForm();
+    const { clients, setClients } = useContext(ClientsContext);
     const history = useHistory();
 
     const onSubmit = (data: ClientForm) => {
-        let temp:Client = {
+        console.log(data);
+        let temp: Client = {
             name: data.name,
             addressLine1: data.addressLine1,
             addressLine2: data.addressLine2,
@@ -38,40 +40,41 @@ function AddClient() {
             contactPhoneNumber: data.contactPhone,
             notes: data.notes,
         }
-        setClients(new Map<string, Client>([...clients, [uuidV4(),temp]]))
+        setClients(new Map<string, Client>([...clients, [uuidV4(), temp]]))
         history.push("/clients");
-        
+
     };
+
+    const [isOpen, { setFalse: dismissPanel }] = useBoolean(true);
     return (
-        <div className="display-client-data">
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label>Name</label>
-                <input name="name" ref={register({ required: true })} type="text" required/>
-                <br/>
-                <input  name="addressLine1" ref={register} type="text"/>
-                <br/>
-                <input name="addressLine2"  ref={register} type="text"/>
-                <br/>
-                <input name="city"  ref={register} type="text"/>
-                <br/>
-                <input  name="country" ref={register} type="text"/>
-                <br/>
-                <input name="companyPhoneNumber"  ref={register} type="text"/>
-                <br/>
-                <input name="notes"  ref={register} type="text"/>
-                <br/>
-                <label>Contact Name</label>
-                <input name="contactName"  ref={register({ required: true })} type="text" required/>
-                <br/>
-                <label>Contact Email</label>
-                <input  name="contactEmail" ref={register({ required: true })} type="text" required/>
-                <br/>
-                <label>Contact Phone Number</label>
-                <input  name="contactPhone" ref={register({ required: true })} type="text" required/>
-                <br/>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+        <Panel
+            isOpen={isOpen}
+            hasCloseButton={false}
+        >
+            <div className="display-client-data">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <Controller as={TextField} control={control} name="name" type="text" label="Name" required />
+                    <Controller as={TextField} control={control} name="addressLine1" type="text" label="Address Line 1" />
+                    <Controller as={TextField} control={control} name="addressLine2" type="text" label="Address Line 2" />
+                    <Controller as={TextField} control={control} name="city" type="text" label="City" />
+                    <Controller as={TextField} control={control} name="country" type="text" label="Country" />
+                    <Controller as={TextField} control={control} name="companyPhoneNumber" type="tel" label="Company Phone Number" />
+                    <Controller as={TextField} control={control} autoAdjustHeight={true} name="notes" type="text" label="Notes" />
+                    <Controller as={TextField} control={control} name="contactName" type="text" label="Contact Name" required />
+                    <Controller as={TextField} control={control} name="contactEmail" type="mail" label="Contact Email" required />
+                    <Controller as={TextField} control={control} name="contactPhone" type="tel" label="Contact Phone Number" required />
+
+                    <div className="add-client-btn">
+                        <PrimaryButton type="submit" text="Add" />
+                        <DefaultButton text="Cancel" onClick={() => {
+                            dismissPanel();
+                            history.push('/clients/');
+                        }} />
+                    </div>
+
+                </form>
+            </div>
+        </Panel>
     )
 }
 
