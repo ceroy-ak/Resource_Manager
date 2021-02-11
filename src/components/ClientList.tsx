@@ -17,10 +17,11 @@ function ClientList() {
                     return (
                         <div key={letter}>
                             {
-                                ((clientsList?.get(letter)?.length ?? 0) > 0)?<h1 className="client-list-alphabet" >{letter}</h1>:<></>
+                                ((clientsList?.get(letter)?.length ?? 0) > 0)?<h2 className="client-list-alphabet" >{letter}</h2>:<></>
                             }
-                            {
-                                clientsList.get(letter)?.map((value) => {
+                            
+                                <div className="ms-Grid-row" dir="ltr">
+                                {clientsList.get(letter)?.map((value) => {
                                     let temp = clients.get(value);
                                     return (
                                          <ClientCard key={value} 
@@ -28,8 +29,9 @@ function ClientList() {
                                          contactName={temp!.contactName} contactEmail={temp!.contactEmail} 
                                          contactPhoneNumber={temp!.contactPhoneNumber} id={value}
                                     />)
-                                })
-                            }
+                                })}
+                                </div>
+                            
                         </div>
                     )
                 })

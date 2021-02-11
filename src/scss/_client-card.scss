@@ -1,0 +1,54 @@
+$font-size: 15px;
+
+@mixin card-body {
+  text-decoration: none;
+  color: black;
+  font-size: $font-size;
+}
+.client-card {
+  background-color: white;
+  margin: 10px;
+  padding: 20px 15px;
+
+
+  &--picture {
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  &--name {
+    h2 {
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+      font-size: $font-size + 8px;
+      padding: 0px 5px 5px 5px;
+    }
+  }
+
+  &--city {
+    p {
+      @include card-body();
+    }
+  }
+
+  &--contact-name {
+    p {
+      @include card-body();
+    }
+  }
+
+  &--phone {
+    p {
+      @include card-body();
+    }
+  }
+
+  &--email{
+      a{
+        @include card-body();
+      }
+  }
+}

@@ -1,25 +1,30 @@
 @import './title';
 @import './new-client';
+@import './client-list';
+@import './client-card';
+@import './add-client';
 
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI Web (West European)','Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,'Helvetica Neue',sans-serif;
+  font-weight: 500;
 }
 
-/*Left Column*/
+// /*Left Column*/
 .left-column{
-height: 100vh;
 background-color: #343434;
-float: left;
-position: fixed !important;
+height: 100vh;
 }
 
-/*right-column*/
+// /*right-column*/
 .right-column{
   margin-top: 70px;
-  float: right;
   padding-left: 15px !important;
-  padding-right: 15px !important;
+  background-color: #f8f8f8;
 }
 
+.client-search {
+  padding: 15px;
+}

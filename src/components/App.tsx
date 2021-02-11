@@ -19,7 +19,7 @@ function App() {
       <ClientProvider>
         <Title />
 
-        <div className="ms-Grid-row">
+        <div className="ms-Grid-row" dir="ltr">
           <LeftColumn />
 
           <BrowserRouter>
