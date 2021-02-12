@@ -1,17 +1,27 @@
 
 
 .add-client-btn{
-    position: absolute;
-    bottom: 20px;
     button {
-        margin: 10px;
+        margin: 40px 10px 0px 0px;
     }
 }
 
 .update-client-btn{
-    position: absolute;
-    bottom: 20px;
     button {
-        margin: 10px;
+        margin: 40px 10px 0px 0px;
     }
+}
+
+.client-image{
+    padding: 20px 0px 15px 0px;
+}
+
+.form-client{
+    label{
+        margin-top: 20px;
+    }
+}
+
+.right-panel{
+    margin-top: 50px;
 }

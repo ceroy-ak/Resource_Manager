@@ -18,15 +18,25 @@
 background-color: #343434;
 height: 100vh;
 position: fixed !important;
+width: 14% !important;
+}
+
+.left-column-adjust{
+  width: 14% !important;
 }
 
 // /*right-column*/
 .right-column{
-  margin-top: 70px;
-  padding-left: 15px !important;
+  margin-top: 65px;
   background-color: #f8f8f8;
+  width: 85.98% !important;
 }
 
 .client-search {
-  padding: 15px;
+  padding: 15px 0px;
+  
+  &-col{
+    float: right !important;
+  }
 }
+

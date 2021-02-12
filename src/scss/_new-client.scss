@@ -2,4 +2,32 @@
 
 .new-client{
     background-color: white !important;
+    padding-bottom: 5px;
+
+    &--col-1{
+        float: left;
+        h2{
+            position: relative;
+            bottom: 5px;
+        }
+    }
+
+    &--parent-col{
+        float: right !important;
+    }
+
+    &--col-2{
+        p{
+            font-size: 12px;
+        }
+    }
+
+    &--col-3{
+        float: right !important;
+        button{
+            position: relative;
+            bottom: 5px;
+            
+        }
+    }
 }

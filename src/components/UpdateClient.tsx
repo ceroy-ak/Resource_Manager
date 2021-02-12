@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { Client, ClientsContext } from './Contexts/ClientProvider'
-import { v4 as uuidV4 } from 'uuid'
 import { useHistory, useParams } from 'react-router-dom'
-import { Panel, PrimaryButton, DefaultButton, TextField } from '@fluentui/react'
+import { Panel, PrimaryButton, DefaultButton, TextField, Image } from '@fluentui/react'
 import { useBoolean } from '@uifabric/react-hooks';
+import profile_pic from '../res/microsoft-img.png'
 
 function UpdateClient() {
     const { clients, setClients } = useContext(ClientsContext);
@@ -74,8 +74,11 @@ function UpdateClient() {
         <Panel
             isOpen={isOpen}
             hasCloseButton={false}
+            headerText="Update Client"
+            className='right-panel'
         >
-            <div className="display-client-data">
+            <div className="form-client">
+            <Image src={profile_pic} width="70px" className="client-image"/>
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <Controller
                         control={control}

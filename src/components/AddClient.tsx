@@ -8,8 +8,10 @@ import {
     PrimaryButton,
     DefaultButton,
     TextField,
+    Image
 } from "@fluentui/react";
 import { useBoolean } from "@uifabric/react-hooks";
+import profile_pic from '../res/microsoft-img.png'
 
 function AddClient() {
     type ClientForm = {
@@ -50,8 +52,14 @@ function AddClient() {
 
     const [isOpen, { setFalse: dismissPanel }] = useBoolean(true);
     return (
-        <Panel isOpen={isOpen} hasCloseButton={false}>
-            <div className="display-client-data">
+        <Panel isOpen={isOpen} hasCloseButton={false}
+        headerText="Add Client"
+        className='right-panel'
+        >
+
+
+            <div className="form-client">
+                <Image src={profile_pic} width="70px" className="client-image"/>
                 <form onSubmit={handleSubmit(onSubmit)}>
                      <Controller
                         control={control}

@@ -1,12 +1,21 @@
 import React from 'react'
-import {TextField} from '@fluentui/react'
+import {SearchBox, ISearchBoxStyles} from '@fluentui/react'
 
 function ClientSearch() {
+
+    const searchBoxStyles: Partial<ISearchBoxStyles> = { 
+        root: { width: 400,
+        paddingRight: '0px',
+    } 
+    };
     return (
-        <div className="ms-Grid-row client-search" dir="rtl">
-            <div className="ms-Grid-col ms-md4">
-            <TextField dir="ltr" iconProps={{iconName:"Search"}} placeholder="Search Client"/>
+        <div className="ms-Grid-row client-search">
+            <div className="ms-Grid-col client-search-col">
+            <SearchBox styles={searchBoxStyles}  placeholder="Search Clients" />
             </div>
+            
+            
+            
         </div>
     )
 }

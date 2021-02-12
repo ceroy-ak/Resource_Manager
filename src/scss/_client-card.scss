@@ -1,4 +1,4 @@
-$font-size: 15px;
+$font-size: 12px;
 
 @mixin card-body {
   text-decoration: none;
@@ -8,23 +8,32 @@ $font-size: 15px;
 .client-card {
   background-color: white;
   margin: 10px;
-  padding: 20px 15px;
+  padding: 20px 25px 20px 10px !important;
+  position: relative;
 
 
   &--picture {
+    padding-right: 0px !important;
     img {
-      height: 50px;
-      width: 50px;
+      height: 45px;
+      width: 45px;
     }
   }
 
   &--name {
+    padding-left: 0px;
     h2 {
       text-decoration: none;
       color: black;
       font-weight: 600;
-      font-size: $font-size + 8px;
-      padding: 0px 5px 5px 5px;
+      font-size: $font-size + 4px;
+      white-space: nowrap;
+      padding: 0px 5px 5px 0px !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    h2:hover{
+      overflow: visible;
     }
   }
 
@@ -37,16 +46,23 @@ $font-size: 15px;
   &--contact-name {
     p {
       @include card-body();
+      padding-bottom: 10px;
     }
   }
 
   &--phone {
     p {
       @include card-body();
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    p:hover{
+      overflow: visible;
     }
   }
 
   &--email{
+    padding-left: 0px !important;
       p{
         @include card-body();
       }
