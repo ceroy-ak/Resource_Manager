@@ -32,6 +32,7 @@ function ClientDisplay() {
     }
 
     if (id !== 'add' && displayData !== undefined) {
+        console.log("Called from Client Display " + displayData);
         return (
             <Panel
                 isOpen={isOpen}

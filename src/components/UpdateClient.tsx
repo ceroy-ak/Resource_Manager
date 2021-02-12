@@ -29,18 +29,18 @@ function UpdateClient() {
     const { id } = useParams<UrlId>();
     const defaultValue = clients.get(id);
 
-    const { register, handleSubmit, control } = useForm<ClientForm>({
+    const {handleSubmit, control } = useForm<ClientForm>({
         defaultValues: {
             name: defaultValue?.name,
             contactName: defaultValue?.contactName,
-            addressLine1: defaultValue?.addressLine1,
-            addressLine2: defaultValue?.addressLine2,
-            city: defaultValue?.city,
-            companyPhoneNumber: defaultValue?.companyPhoneNumber,
+            addressLine1: defaultValue?.addressLine1 ?? "",
+            addressLine2: defaultValue?.addressLine2 ?? "",
+            city: defaultValue?.city ?? "",
+            companyPhoneNumber: defaultValue?.companyPhoneNumber ?? "",
             contactEmail: defaultValue?.contactEmail,
             contactPhone: defaultValue?.contactPhoneNumber,
-            country: defaultValue?.country,
-            notes: defaultValue?.notes,
+            country: defaultValue?.country ?? "",
+            notes: defaultValue?.notes ?? "",
         }
     });
 
@@ -77,16 +77,126 @@ function UpdateClient() {
         >
             <div className="display-client-data">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Controller as={TextField} control={control} name="name" type="text" label="Name" required />
+                <Controller
+                        control={control}
+                        name="name"
+                        rules={{
+                            required: true,
+                            validate: (value) => {
+                                let regEx = /^[a-zA-Z]/g;
+                                return regEx.test(value);
+                            },
+                        }}
+                        render={({ onChange, value }) => (
+                            <TextField
+                                label="Name"
+                                required
+                                value={value}
+                                onGetErrorMessage={(value: string) => {
+                                    if (value !== "") {
+                                        let regEx = /^[a-zA-Z]/g;
+                                        if (!regEx.test(value))
+                                            return "Company Name Should start with Alphabets";
+                                    }
+                                    return "";
+                                }}
+                                onChange={onChange}
+                            />
+                        )}
+                    />
+
                     <Controller as={TextField} control={control} name="addressLine1" type="text" label="Address Line 1" />
                     <Controller as={TextField} control={control} name="addressLine2" type="text" label="Address Line 2" />
                     <Controller as={TextField} control={control} name="city" type="text" label="City" />
                     <Controller as={TextField} control={control} name="country" type="text" label="Country" />
                     <Controller as={TextField} control={control} name="companyPhoneNumber" type="tel" label="Company Phone Number" />
                     <Controller as={TextField} control={control} autoAdjustHeight={true} name="notes" type="text" label="Notes" />
-                    <Controller as={TextField} control={control} name="contactName" type="text" label="Contact Name" required />
-                    <Controller as={TextField} control={control} name="contactEmail" type="mail" label="Contact Email" required />
-                    <Controller as={TextField} control={control} name="contactPhone" type="tel" label="Contact Phone Number" required />
+
+
+
+                    <Controller
+                        control={control}
+                        name="contactName"
+                        rules={{
+                            required: true,
+                            validate: (value) => {
+                                let regEx = /^[a-zA-Z ]+$/g;
+                                return regEx.test(value);
+                            },
+                        }}
+                        render={({ onChange, value }) => (
+                            <TextField
+                                label="Contact Name"
+                                value={value}
+                                onChange={onChange}
+                                required
+                                onGetErrorMessage={(value: string) => {
+                                    if (value !== "") {
+                                        let regEx = /^[a-zA-Z ]+$/g;
+                                        if (!regEx.test(value)) {
+                                            return "Name can only contain alphabets";
+                                        }
+                                    }
+                                    return "";
+                                }}
+                            />
+                        )}
+                    />
+
+                    <Controller
+                        control={control}
+                        name="contactEmail"
+                        rules={{
+                            required: true,
+                            validate: (value) => {
+                                let regEx = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}/g;
+                                return regEx.test(value);
+                            },
+                        }}
+                        render={({ onChange,value }) => (
+                            <TextField
+                                label="Contact Email"
+                                required
+                                value={value}
+                                onGetErrorMessage={(value: string) => {
+                                    if (value !== "") {
+                                        let regEx = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}/g;
+                                        if (!regEx.test(value)) return "Enter a valid Email";
+                                    }
+                                    return "";
+                                }}
+                                onChange={onChange}
+                            />
+                        )}
+                    />
+
+                    <Controller
+                        control={control}
+                        name="contactPhone"
+                        rules={{
+                            required: true,
+                            validate: (value) => {
+                                let regEx = /^[+][0-9]+[- 0-9]+$/g;
+                                return regEx.test(value);
+                            },
+                        }}
+                        render={({ onChange, value }) => (
+                            <TextField
+                                label="Contact Phone Number"
+                                required
+                                value={value}
+                                onGetErrorMessage={(value: string) => {
+                                    if (value !== "") {
+                                        let regEx = /^[+][0-9]+[- 0-9]+$/g;
+                                        if (!regEx.test(value))
+                                            return "can accept only +countryCode phoneNumber";
+                                    }
+                                    return "";
+                                }}
+                                onChange={onChange}
+                            />
+                        )}
+                    />
                     <div className="update-client-btn">
                         <PrimaryButton type="submit" text="Update" />
                         <DefaultButton text="Cancel" onClick={() => {
