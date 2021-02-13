@@ -5,8 +5,7 @@ import RightColumn from "./RightColumn";
 import { ClientProvider } from "./Contexts/ClientProvider";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ClientDisplay from "./ClientDisplay";
-import AddClient from "./AddClient";
-import UpdateClient from "./UpdateClient";
+import FormClient from './FormClient'
 import "../scss/App.scss";
 import { initializeIcons } from "@uifabric/icons";
 import "@fluentui/react/dist/css/fabric.min.css";
@@ -25,8 +24,8 @@ function App() {
           <BrowserRouter>
             <Route path="/clients" component={RightColumn} />
             <Switch>
-              <Route path="/clients/:id/edit" exact component={UpdateClient} />
-              <Route path="/clients/add" exact component={AddClient} />
+              <Route path="/clients/:id/edit" exact component={FormClient} />
+              <Route path="/clients/add" exact component={FormClient} />
               <Route path="/clients/:id" component={ClientDisplay} />
             </Switch>
           </BrowserRouter>
