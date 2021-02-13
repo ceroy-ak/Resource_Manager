@@ -47,6 +47,7 @@ function AddClient() {
         setClients(
             new Map<string, Client>([...clients, [uuidV4(), temp]])
         );
+        dismissPanel();
         history.push("/clients");
     };
 
@@ -55,6 +56,7 @@ function AddClient() {
         <Panel isOpen={isOpen} hasCloseButton={false}
         headerText="Add Client"
         className='right-panel'
+        onDismissed={()=>history.push("/clients/")}
         >
 
 
@@ -192,7 +194,7 @@ function AddClient() {
                         rules={{
                             required: true,
                             validate: (value) => {
-                                let regEx = /^[+][0-9]+[- 0-9]+$/g;
+                                let regEx = /^[+][0-9]{1,3}[- 0-9]{4,13}$/g;
                                 return regEx.test(value);
                             },
                         }}
@@ -202,7 +204,7 @@ function AddClient() {
                                 required
                                 onGetErrorMessage={(value: string) => {
                                     if (value !== "") {
-                                        let regEx = /^[+][0-9]+[- 0-9]+$/g;
+                                        let regEx = /^[+][0-9]{1,3}[- 0-9]{4,13}$/g;
                                         if (!regEx.test(value))
                                             return "can accept only +countryCode phoneNumber";
                                     }
@@ -219,7 +221,6 @@ function AddClient() {
                             text="Cancel"
                             onClick={() => {
                                 dismissPanel();
-                                history.push("/clients/");
                             }}
                         />
                     </div>

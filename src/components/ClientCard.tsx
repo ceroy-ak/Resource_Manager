@@ -30,15 +30,17 @@ function ClientCard({ name, city, contactName, contactEmail, contactPhoneNumber,
         if (city !== '')
             return (
             <>
-            
             <p><FontIcon iconName="location" className={styles}/> {city}</p>
             </>)
         else
-            return <br />
+            return (
+                <>
+                <br/>
+                </>)
     }
 
     return (
-        <div className="ms-Grid-col ms-md3 client-card">
+        <div className="ms-Grid-col ms-xxl3 ms-xl4 ms-lg6  ms-sm12 client-card">
             <Link to={`/clients/${id}`}>
                 <div className="ms-Grid-row" dir="ltr">
                     <div className="ms-Grid-col ms-md3 client-card--picture">

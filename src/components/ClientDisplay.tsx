@@ -13,11 +13,18 @@ interface UrlId {
 function ClientDisplay() {
     const { id } = useParams<UrlId>()
     const { clients } = useContext(ClientsContext)
+    const history = useHistory();
+
+    if(clients.has(id) === false){
+        history.push('/clients')
+    }
+
+
     const displayData = clients.get(id)!;
 
     const [isOpen, { setFalse: dismissPanel }] = useBoolean(true);
 
-    const history = useHistory();
+    
 
     enum actionType { Edit, Close };
 
@@ -30,7 +37,7 @@ function ClientDisplay() {
             else {
                 history.push('/clients')
             }
-        },100)
+        },500)
 
         
     }
@@ -39,8 +46,7 @@ function ClientDisplay() {
         position: 'relative',
         top: '3px',
     });
-
-    if (id !== 'add' && displayData !== undefined) {
+    if (displayData !== undefined) {
         console.log("Called from Client Display " + displayData);
         return (
             <Panel

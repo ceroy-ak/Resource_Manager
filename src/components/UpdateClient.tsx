@@ -8,6 +8,7 @@ import profile_pic from '../res/microsoft-img.png'
 
 function UpdateClient() {
     const { clients, setClients } = useContext(ClientsContext);
+    const history = useHistory();
 
     type ClientForm = {
         name: string;
@@ -27,6 +28,9 @@ function UpdateClient() {
         id: string
     }
     const { id } = useParams<UrlId>();
+    if(clients.has(id) === false){
+        history.push('/clients')
+    }
     const defaultValue = clients.get(id);
 
     const {handleSubmit, control } = useForm<ClientForm>({
@@ -44,7 +48,7 @@ function UpdateClient() {
         }
     });
 
-    const history = useHistory();
+    
     const [isOpen, { setFalse: dismissPanel }] = useBoolean(true);
 
     const onSubmit = (data: ClientForm) => {
@@ -76,6 +80,7 @@ function UpdateClient() {
             hasCloseButton={false}
             headerText="Update Client"
             className='right-panel'
+            onDismissed={()=>history.push("/clients/")}
         >
             <div className="form-client">
             <Image src={profile_pic} width="70px" className="client-image"/>
@@ -179,7 +184,7 @@ function UpdateClient() {
                         rules={{
                             required: true,
                             validate: (value) => {
-                                let regEx = /^[+][0-9]+[- 0-9]+$/g;
+                                let regEx = /^[+][0-9]{1,3}[- 0-9]{4,13}$/g;
                                 return regEx.test(value);
                             },
                         }}
@@ -190,7 +195,7 @@ function UpdateClient() {
                                 value={value}
                                 onGetErrorMessage={(value: string) => {
                                     if (value !== "") {
-                                        let regEx = /^[+][0-9]+[- 0-9]+$/g;
+                                        let regEx = /^[+][0-9]{1,3}[- 0-9]{4,13}$/g;
                                         if (!regEx.test(value))
                                             return "can accept only +countryCode phoneNumber";
                                     }
@@ -204,7 +209,6 @@ function UpdateClient() {
                         <PrimaryButton type="submit" text="Update" />
                         <DefaultButton text="Cancel" onClick={() => {
                             dismissPanel();
-                            history.push('/clients/');
                         }} />
                     </div>
 

@@ -40,6 +40,8 @@ $font-size: 12px;
   &--city {
     p {
       @include card-body();
+      padding-top: 1px;
+      padding-bottom: 5px;
     }
   }
 
