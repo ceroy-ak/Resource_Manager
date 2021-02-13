@@ -123,11 +123,13 @@ function FormClient() {
                                 return regEx.test(value);
                             },
                         }}
+                        
                         render={({ onChange, value }) => (
                             <TextField
                                 label="Name"
                                 required
                                 value={value}
+                                onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
                                 onGetErrorMessage={(value: string) => {
                                     if (value !== "") {
                                         let regEx = /^[a-zA-Z]/g;
@@ -141,12 +143,14 @@ function FormClient() {
                         )}
                     />
 
-                    <Controller as={TextField} control={control} name="addressLine1" type="text" label="Address Line 1" />
-                    <Controller as={TextField} control={control} name="addressLine2" type="text" label="Address Line 2" />
-                    <Controller as={TextField} control={control} name="city" type="text" label="City" />
-                    <Controller as={TextField} control={control} name="country" type="text" label="Country" />
-                    <Controller as={TextField} control={control} name="companyPhoneNumber" type="tel" label="Company Phone Number" />
-                    <Controller as={TextField} control={control} autoAdjustHeight={true} name="notes" type="text" label="Notes" />
+                    <Controller as={TextField} control={control} onKeyPress={(e:React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => { e.key === 'Enter' && e.preventDefault(); }} name="addressLine1" type="text" label="Address Line 1" />
+                    <Controller as={TextField} control={control} onKeyPress={(e:React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => { e.key === 'Enter' && e.preventDefault(); }} name="addressLine2" type="text" label="Address Line 2" />
+                    <Controller as={TextField} control={control} onKeyPress={(e:React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => { e.key === 'Enter' && e.preventDefault(); }} name="city" type="text" label="City" />
+                    <Controller as={TextField} control={control} onKeyPress={(e:React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => { e.key === 'Enter' && e.preventDefault(); }} name="country" type="text" label="Country" />
+                    <Controller as={TextField} control={control} onKeyPress={(e:React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => { e.key === 'Enter' && e.preventDefault(); }} name="companyPhoneNumber" type="tel" label="Company Phone Number" />
+
+
+                    <Controller as={TextField} control={control} multiline={true} resizable={false} autoAdjustHeight={true} name="notes" type="text" label="Notes" />
 
 
 
@@ -163,6 +167,7 @@ function FormClient() {
                         render={({ onChange, value }) => (
                             <TextField
                                 label="Contact Name"
+                                onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
                                 value={value}
                                 onChange={onChange}
                                 required
@@ -194,6 +199,7 @@ function FormClient() {
                                 label="Contact Email"
                                 required
                                 value={value}
+                                onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
                                 onGetErrorMessage={(value: string) => {
                                     if (value !== "") {
                                         let regEx = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}/g;
@@ -221,6 +227,7 @@ function FormClient() {
                                 label="Contact Phone Number"
                                 required
                                 value={value}
+                                onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
                                 onGetErrorMessage={(value: string) => {
                                     if (value !== "") {
                                         let regEx = /^[+][0-9]{1,3}[- 0-9]{4,13}$/g;

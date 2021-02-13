@@ -11,6 +11,16 @@ $font-size: 12px;
   padding: 20px 25px 20px 10px !important;
   position: relative;
 
+  p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  p:hover{
+    overflow: visible;
+    white-space: normal;
+  }
+
 
   &--picture {
     padding-right: 0px !important;
@@ -31,9 +41,11 @@ $font-size: 12px;
       padding: 0px 5px 5px 0px !important;
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
     h2:hover{
       overflow: visible;
+      white-space: normal;
     }
   }
 

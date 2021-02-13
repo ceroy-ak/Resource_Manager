@@ -4,7 +4,7 @@
 @import './client-card';
 @import './form-client';
 @import './client-display';
-
+@import '../../node_modules/@fluentui/react/dist/sass/variables/Responsive.Variables';
 //node_modules\@fluentui\react\dist\sass\variables
 
 *{
@@ -32,6 +32,12 @@ width: 14% !important;
   margin-top: 65px;
   background-color: #f8f8f8;
   width: 85.98% !important;
+}
+
+@media screen and (max-width: $ms-screen-min-xl){
+  .right-column{
+    width: 100% !important;
+  }
 }
 
 .client-search {
