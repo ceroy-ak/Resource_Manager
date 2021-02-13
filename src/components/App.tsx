@@ -1,6 +1,6 @@
 import React from "react";
 import Title from "./Title";
-import LeftColumn from "./LeftColumn";
+import LeftMenu from "./LeftMenu";
 import RightColumn from "./RightColumn";
 import { ClientProvider } from "./Contexts/ClientProvider";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -19,7 +19,7 @@ function App() {
         <Title />
 
         <div className="ms-Grid-row" dir="ltr">
-          <LeftColumn />
+          <LeftMenu />
 
           <BrowserRouter>
             <Route path="/clients" component={RightColumn} />
