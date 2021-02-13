@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from "../res/saketa_logo.png"
 import profile_picture from "../res/microsoft-img.png"
-import { IconButton, Layer } from '@fluentui/react'
+import { IconButton, Layer, FontIcon } from '@fluentui/react'
 
 function Title() {
     return (
@@ -10,6 +10,7 @@ function Title() {
                 <nav className="title">
                     <div className="title-left">
                         <img src={Logo} alt="Logo" />
+                        <FontIcon iconName="Separator" className="title-left-separator" />
                         <h1>Resource Manager</h1>
                     </div>
                     <div className="title-center">

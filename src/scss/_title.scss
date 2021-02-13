@@ -1,44 +1,5 @@
 @import "@fluentui/react/dist/sass/References/";
 
-/*Title Component*/
-
-// .title {
-//   background-color: #2a8ad4;
-//   color: white;
-//   display: flex;
-//   justify-content: space-between;
-//   min-height: 20px;
-//   position: fixed;
-//   width: 100%;
-
-  
-
-//   img{
-//       height: auto;
-//       width: 110px;
-//       padding: 15px 5px 10px 20px;
-//   }
-
-//   &-logo{
-//       display: flex;
-
-//       h1{
-//           font-family: 'Arial';
-//           padding: 21px 20px 0px 5px;
-//           font-size: 15px;
-//       }
-//   }
-
-//   &-center-logo{
-//       margin:auto;
-//   }
-
-//   &-settings{
-//       margin-left: 100px;
-//       padding: 10px;
-//   }
-// }
-//Available: title, title-left, title-center, title-right -> title-settings
 .title{
     background-color: #2a8ad4;
     display: flex;
@@ -55,14 +16,19 @@
         display: flex;
 
         img{
-            margin:10px;
+            margin:10px 4px 10px 10px;
+        }
+
+        &-separator{
+            font-size: 25px;
+            margin: 13px 0px 0px 0px;
+            padding: 0px 2px;
         }
 
         h1{
             white-space:nowrap;
-            border-left: 2px solid white;
-            margin: 10px 10px 10px 10px;
-            padding: 0px 10px 0px 20px;
+            margin: 10px 10px 10px 0px;
+            padding: 0px 10px 0px 0px;
             font-weight: lighter;
         }
     }
@@ -70,7 +36,7 @@
     &-settings{
         color: white;
         align-self: center;
-        font-size: 20px;
+        font-size: 17px;
 
     }
 
