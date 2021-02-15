@@ -28,6 +28,7 @@ function ClientList() {
                                          name={temp!.name} city={temp!.city} 
                                          contactName={temp!.contactName} contactEmail={temp!.contactEmail} 
                                          contactPhoneNumber={temp!.contactPhoneNumber} id={value}
+                                         profilePicture = {temp!.profilePicture}
                                     />)
                                 })}
                                 </div>

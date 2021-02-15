@@ -12,7 +12,8 @@ export interface Client {
     notes: string,
     contactName: string,
     contactEmail: string,
-    contactPhoneNumber: string
+    contactPhoneNumber: string,
+    profilePicture: string
 }
 
 interface defaultSetClients {
@@ -45,7 +46,8 @@ export function ClientProvider(props: { children: React.ReactNode }): JSX.Elemen
         notes: "",
         contactName: "Stepanie",
         contactEmail: "string@example.com",
-        contactPhoneNumber: "+91-9788797887"
+        contactPhoneNumber: "+91-9788797887",
+        profilePicture: "",
     });
     clientsMap.set(uuidV4(), {
         name: "App Crest",
@@ -57,7 +59,8 @@ export function ClientProvider(props: { children: React.ReactNode }): JSX.Elemen
         notes: "",
         contactName: "Kamran Khlerolomom",
         contactEmail: "string@example.com",
-        contactPhoneNumber: "+91-8057790375"
+        contactPhoneNumber: "+91-8057790375",
+        profilePicture: "",
     });
     clientsMap.set(uuidV4(), {
         name: "BPA Solutions",
@@ -69,7 +72,8 @@ export function ClientProvider(props: { children: React.ReactNode }): JSX.Elemen
         notes: "",
         contactName: "Gilber Nicole",
         contactEmail: "string@example.com",
-        contactPhoneNumber: "+41-245242543"
+        contactPhoneNumber: "+41-245242543",
+        profilePicture: ""
     });
     clientsMap.set(uuidV4(), {
         name: "Buffalo City",
@@ -81,7 +85,8 @@ export function ClientProvider(props: { children: React.ReactNode }): JSX.Elemen
         notes: "",
         contactName: "Shwetank",
         contactEmail: "string@example.com",
-        contactPhoneNumber: "+91-987838447483"
+        contactPhoneNumber: "+91-987838447483",
+        profilePicture: ""
     });
     clientsMap.set(uuidV4(), {
         name: "Cox and Kings",
@@ -93,7 +98,8 @@ export function ClientProvider(props: { children: React.ReactNode }): JSX.Elemen
         notes: "",
         contactName: "Gilbert Nicole",
         contactEmail: "string@example.com",
-        contactPhoneNumber: "+91-9876543212"
+        contactPhoneNumber: "+91-9876543212",
+        profilePicture: "",
     });
     clientsMap.set(uuidV4(), {
         name: "DLR",
@@ -105,7 +111,8 @@ export function ClientProvider(props: { children: React.ReactNode }): JSX.Elemen
         notes: "",
         contactName: "Abhishek Kumar",
         contactEmail: "string@example.com",
-        contactPhoneNumber: "+91-8456879621"
+        contactPhoneNumber: "+91-8456879621",
+        profilePicture: "",
     });
 
 

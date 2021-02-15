@@ -4,7 +4,7 @@ import { ClientsContext } from './Contexts/ClientProvider'
 import { Panel, PrimaryButton, DefaultButton, mergeStyles } from '@fluentui/react'
 import { useBoolean } from '@uifabric/react-hooks';
 import profile_picture from '../res/microsoft-img.png';
-import {Icon, FontIcon} from '@fluentui/react/lib/Icon'
+import {FontIcon} from '@fluentui/react/lib/Icon'
 
 
 interface UrlId {
@@ -55,7 +55,7 @@ function ClientDisplay() {
                 className='right-panel'
             >
                 <div className="client-display">
-                    <img className="client-display--picture" src={profile_picture} alt="Company Pic" />
+                    <img className="client-display--picture" src={(displayData.profilePicture === "")?profile_picture: displayData.profilePicture} alt="Company Pic" />
                     <h2 className="client-display--name" >{displayData.name}</h2>
                     <h3 className="client-display--heading" >Contact Details</h3>
                     

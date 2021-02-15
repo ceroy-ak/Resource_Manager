@@ -9,7 +9,8 @@ interface ClientData {
     city: string,
     contactName: string,
     contactEmail: string,
-    contactPhoneNumber: string
+    contactPhoneNumber: string,
+    profilePicture: string,
     id: string
 }
 const styles = mergeStyles({
@@ -24,7 +25,7 @@ const moreIconStyles = mergeStyles({
     color: "black"
 });
 
-function ClientCard({ name, city, contactName, contactEmail, contactPhoneNumber, id }: ClientData) {
+function ClientCard({ name, city, contactName, contactEmail, contactPhoneNumber, id, profilePicture }: ClientData) {
 
     function cityCheck(city: string) {
         if (city !== '')
@@ -44,7 +45,7 @@ function ClientCard({ name, city, contactName, contactEmail, contactPhoneNumber,
             <Link to={`/clients/${id}`}>
                 <div className="ms-Grid-row" dir="ltr">
                     <div className="ms-Grid-col ms-md3 client-card--picture">
-                        <img src={profile_picture} alt="company profile" />
+                        <img src={(profilePicture === "")?profile_picture: profilePicture} alt="company profile" />
                     </div>
                     <div className="ms-Grid-col ms-md9">
                         <div className="ms-Grid-row client-card--name" dir="ltr">
