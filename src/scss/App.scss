@@ -21,6 +21,7 @@ background-color: #343434;
 height: 100vh;
 position: fixed !important;
 width: 14% !important;
+padding-top: 65px;
 }
 
 .left-column-adjust{
@@ -48,3 +49,22 @@ width: 14% !important;
   }
 }
 
+
+.left-column-nav{
+  span{
+    color: #cdcdcd !important;
+  }
+  i{
+    color: #cdcdcd !important;
+  }
+}
+
+.is-selected{
+  a{
+    background-color: #666666;
+  }
+}
+
+.link-65:hover, .link-77:hover, .link-74:hover{
+  background-color: #666666 !important;
+}

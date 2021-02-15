@@ -124,7 +124,7 @@ function FormClient() {
             <div className="form-client">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Image src={profilePicture} width="70px" onClick={()=>{document.getElementById('profileImg')?.click()}} className="client-image" />
-                    <input type="file" id="profileImg" style={{display:"none"}} onChange={(e)=>{
+                    <input type="file" id="profileImg" style={{display:"none"}} accept=".png,.jpg,.jpeg" onChange={(e)=>{
                             const reader = new FileReader();
                             if(e.target.files){
                                 reader.readAsDataURL(e.target.files[0]);
