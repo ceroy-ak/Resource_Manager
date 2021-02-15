@@ -11,6 +11,11 @@
     padding: 20px 0px 15px 0px;
 }
 
+.client-image::after{
+    content: 'Click to Upload';
+    font-size: 10px;
+}
+
 .form-client{
     label{
         margin-top: 20px;
